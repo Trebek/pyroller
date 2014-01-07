@@ -1,7 +1,7 @@
 PyRoller: Dice Module
 =============================
 
-[**Try a demo here!**](http://repl.it/NVc/1)
+[**Try a demo here!**](http://repl.it/NVc/2)
 
 A relatively simple dice module, containing methods to roll, sum, and average the sums of instantiated dice. Has a few other extra, handy features built in as well.
 

@@ -1,7 +1,7 @@
 #===============================================================================
 # PyRoller Dice Module
 #-------------------------------------------------------------------------------
-# Version: 1.0.0
+# Version: 1.0.1
 # Updated: 06-01-2014
 # Author: Alex Crawford
 # License: MIT
@@ -123,6 +123,12 @@ class Pyroller(object):
         """
         return self.roll_total
 
+    def get_rolls_sums(self):
+        """Returns the rolls and sums packaged together in tuples."""
+
+        zipped = zip(self.rolls, self.sums)
+        return zipped
+
     def get_sums(self, start=0, end=0):
         """Returns the current sum(s)."""
 
@@ -156,11 +162,9 @@ class Pyroller(object):
         else:
             return sum_avg
 
-    def get_rolls_sums(self):
-        """Returns the rolls and sums packaged together in tuples."""
-
-        zipped = zip(self.rolls, self.sums)
-        return zipped
+    def get_tosses(self, start=0, end=0):
+        """Just a wrapper for the 'get_rolls' method."""
+        return self.get_rolls(start, end)
 
     def parse_notat(self):
         """Parses di(c)e notation, separating number of dice from sides."""
@@ -264,7 +268,6 @@ class Pyroller(object):
 
         self.parse_notat()
 
-
     def sum_rolls(self, rem=False):
         """
         Sums the current roll(s), and stores the sums in 'self.sums'. 
@@ -285,6 +288,10 @@ class Pyroller(object):
             self.sums = self.rolls
         
         return roll_sums[-1]
+
+    def toss(self, count=1, rem=False):
+        """Just a wrapper for the 'roll' method."""
+        return self.roll(count, rem)
 
 #===============================================================================
 # IF __NAME__ == '__MAIN__'
